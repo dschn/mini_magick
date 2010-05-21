@@ -90,7 +90,7 @@ module MiniMagick
       unless File.exists?(@path)
         begin
           FileUtils.copy_file(@path.sub(".#{format}", "-#{page}.#{format}"), @path)
-        rescue e
+        rescue => e
           raise MiniMagickError, "Unable to format to #{format}; #{e}" unless File.exist?(@path)
         end
       end
